@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/parent_margin"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:stretchColumns="*">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:layout_weight="0.5"
+                android:drawableLeft="@drawable/ic_sandwich"
+                android:drawablePadding="@dimen/drawable_padding"
+                android:drawableStart="@drawable/ic_sandwich"
+                android:text="@string/sandwich_name" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:layout_weight="0.5" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:layout_weight="0.5"
+                android:drawableLeft="@drawable/ic_ingredients"
+                android:drawablePadding="@dimen/drawable_padding"
+                android:drawableStart="@drawable/ic_ingredients"
+                android:text="@string/sandwich_ingredients" />
+
+            <TextView
+                android:id="@+id/ingredients"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:layout_weight="0.5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:layout_weight="0.5"
+                android:drawableLeft="@drawable/ic_place"
+                android:drawablePadding="@dimen/drawable_padding"
+                android:drawableStart="@drawable/ic_place"
+                android:text="Place" />
+
+            <TextView
+                android:id="@+id/place"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:layout_weight="0.5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+
+                android:layout_weight="0.5"
+                android:drawableLeft="@drawable/ic_notepad"
+                android:drawablePadding="@dimen/drawable_padding"
+                android:drawableStart="@drawable/ic_notepad"
+                android:text="@string/sandwich_also_know_as" />
+
+            <TextView
+                android:id="@+id/also_know_as"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/child_margin"
+                android:layout_weight="0.5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/child_margin"
+                android:layout_weight="1"
+                android:text="@string/sandwich_description" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/child_margin"
+                android:layout_weight="1"
+                android:singleLine="false" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,11 +1,15 @@
 package com.udacity.sandwichclub.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class Sandwich {
+public class Sandwich implements Parcelable {
 
-    private String mainName;
-    private List<String> alsoKnownAs = null;
+
+    private Name name;
     private String placeOfOrigin;
     private String description;
     private String image;
@@ -17,29 +21,39 @@ public class Sandwich {
     public Sandwich() {
     }
 
-    public Sandwich(String mainName, List<String> alsoKnownAs, String placeOfOrigin, String description, String image, List<String> ingredients) {
-        this.mainName = mainName;
-        this.alsoKnownAs = alsoKnownAs;
+    public Sandwich(Name name, String placeOfOrigin, String description, String image, List<String> ingredients) {
+        this.name = name;
         this.placeOfOrigin = placeOfOrigin;
         this.description = description;
         this.image = image;
         this.ingredients = ingredients;
     }
 
-    public String getMainName() {
-        return mainName;
+    protected Sandwich(Parcel in) {
+        placeOfOrigin = in.readString();
+        description = in.readString();
+        image = in.readString();
+        ingredients = in.createStringArrayList();
     }
 
-    public void setMainName(String mainName) {
-        this.mainName = mainName;
+    public static final Creator<Sandwich> CREATOR = new Creator<Sandwich>() {
+        @Override
+        public Sandwich createFromParcel(Parcel in) {
+            return new Sandwich(in);
+        }
+
+        @Override
+        public Sandwich[] newArray(int size) {
+            return new Sandwich[size];
+        }
+    };
+
+    public Name getName() {
+        return name;
     }
 
-    public List<String> getAlsoKnownAs() {
-        return alsoKnownAs;
-    }
-
-    public void setAlsoKnownAs(List<String> alsoKnownAs) {
-        this.alsoKnownAs = alsoKnownAs;
+    public void setName(Name name) {
+        this.name = name;
     }
 
     public String getPlaceOfOrigin() {
@@ -72,5 +86,19 @@ public class Sandwich {
 
     public void setIngredients(List<String> ingredients) {
         this.ingredients = ingredients;
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(placeOfOrigin);
+        dest.writeString(description);
+        dest.writeString(image);
+        dest.writeStringList(ingredients);
     }
 }

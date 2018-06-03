@@ -2,18 +2,68 @@
 
 buildscript {
     repositories {
+        google()
         jcenter()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.1.2'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath 'com.google.gms:google-services:3.2.0'
     }
+
+
+    ext.buildConfig = [
+            'compileSdk': 27,
+            'targetSdk' : 27,
+            'minSdk'    : 16,
+            'isSnapshot': false,
+
+            'version'   : [
+                    'major'     : 1,
+                    'minor'     : 0,
+                    'patch'     : 0,
+                    'classifier': null, // dev, beta, alpha etc.
+            ]
+    ]
+    ext.versions = [
+            'supportLibrary'  : '27.1.1',
+            'constraintLayout': '1.1.0',
+            'firebase'        : '15.0.0',
+            'testRunner'      : '1.0.1',
+            'espressoCore'    : '3.0.1',
+            'leak_canary'     : '1.5.4',
+            'timber'          : '4.7.0',
+            'play_services'   : '15.0.0',
+            'picasso'         : '2.5.0',
+            'retrofit'        : '2.4.0',
+            'gson'            : '2.8.4',
+            'gsonConvertor'   : '2.3.0'
+    ]
+
+
+
+    ext.buildConfig.version['name'] = "${buildConfig.version.major}.${buildConfig.version.minor}.${buildConfig.version.patch}"
+    ext.buildConfig.version['code'] = buildConfig.version.major * 100000 + buildConfig.version.minor * 10000 + buildConfig.version.patch * 100
+
+    ext.deps = [
+            'android': [
+                    'support': [
+                            'appcompatV7'     : "com.android.support:appcompat-v7:${versions.supportLibrary}",
+                            'constraintLayout': "com.android.support.constraint:constraint-layout:${versions.constraintLayout}",
+                            'recycleView'     : "com.android.support:recyclerview-v7:${versions.supportLibrary}",
+                            'design'          : "com.android.support:design:${versions.supportLibrary}"
+                    ]
+            ],
+
+            'other'  : [
+                    'picasso': "com.squareup.picasso:picasso:${versions.picasso}"
+
+            ]
+    ]
+
+
 }
 
 allprojects {
